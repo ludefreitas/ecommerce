@@ -1,6 +1,5 @@
 <?php 
 
-
 require_once("vendor/autoload.php");
 
 $app = new \Slim\Slim();
@@ -9,11 +8,9 @@ $app->config('debug', true);
 
 $app->get('/', function() {
     
-	$sql  = new Luciano\DB\sql();
+	$page = new Luciano\Page();
 
-	$results = $sql->select("SELECT * FROM tb_users");
-    
-	echo json_encode($results);
+	$page->setTpl("index");
 
 });
 
